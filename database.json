@@ -1,0 +1,40 @@
+[
+         {
+                "id": 0,
+                "model": "BMW X6",
+                "color": 1,
+                "year": 2020
+          },
+
+          {
+                "id": 1,
+                "model": "Audi A6",
+                "color": 2,
+                "year": 2021
+           },
+
+           {
+                "id": 2,
+                "model": "Dodge Ram",
+                "color": 0,
+                "year": 2022
+           },
+           {
+                "id": 3,
+                "model": "Lexus RX",
+                "color": 1,
+                "year": 2019
+            },
+            {
+                "id": 4,
+                "model": "Dodge Challenger",
+                "color": 3,
+                "year": 1972
+            },
+            {
+                "id": 5,
+                "model": "Mercedes-Benz AMG GLE63S Coupe",
+                "color": 0,
+                "year": 2022
+            }
+]

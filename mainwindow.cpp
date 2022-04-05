@@ -16,9 +16,44 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     QString filePath = getFilePath();
+/*
+    QFileInfo inf(filePath);
+    QString file_extenstion = inf.suffix();
+
+    if(file_extenstion == "csv")
+    {
+        CSVReader csv(filePath);
+        absRead(csv);
+    }
+    if(file_extenstion == "json")
+    {
+        JSONReader json(filePath);
+        absRead(json);
+    }
+*/
+    //QFileInfo inf(filePath);
+   // QString file_extenstion = inf.suffix();
 
     CSVReader csv(filePath);
+    absRead(csv);
     //CSVReader csv("E:/VSCode/CPP/build-LAB_2_OOP-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/Database.csv");
+    //JSONReader json(filePath);
+
+
+    //  QFileInfo inf(filePath);
+      //QString file_extenstion = inf.suffix();
+  /*
+      if(file_extenstion == "csv")
+      {
+          CSVReader csv(filePath);
+          proccessedFile(csv);
+      }
+      if(file_extenstion == "json")
+      {
+          JSONReader json(filePath);
+          proccessedFile(json);
+      }
+*/
 
     if(csv.is_open())
     {
@@ -28,6 +63,13 @@ MainWindow::MainWindow(QWidget *parent)
             return vehicle_1.year > vehicle_2.year;
         });
     }
+
+
+
+
+
+
+
 
     for (const auto& v: vehicles)
         {
@@ -65,7 +107,7 @@ void MainWindow::findVehicle()
 
 QString MainWindow::getFilePath()
 {
-      return QFileDialog::getOpenFileName(0, "Open Dialog", "", "*.csv *.json");
+      return QFileDialog::getOpenFileName(0, "Open File", "", "*.csv *.json");
 }
 
 
