@@ -23,8 +23,10 @@ public slots:
     void findVehicle();
     void addToVector();
     void absRead(AbstractReader& reader);
-    QString getFilePath();
 
+
+private slots:
+    void on_addFilePath_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -13,29 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
-    QString filePath = getFilePath();
-
-    QFileInfo inf(filePath);
-    QString file_extenstion = inf.suffix();
-
-    if(file_extenstion == "csv")
-    {
-        CSVReader csv(filePath);
-        absRead(csv);
-    }
-    if(file_extenstion == "json")
-    {
-        JSONReader json(filePath);
-        absRead(json);
-    }
-
-
-    for (const auto& v: vehicles)
-        {
-            ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + "," + v.brand_and_model + "," + QString::number(v.color) + "," + QString::number(v.year));
-        }
 }
 
 
@@ -66,12 +43,6 @@ void MainWindow::findVehicle()
         }
 }
 
-QString MainWindow::getFilePath()
-{
-      return QFileDialog::getOpenFileName(0, "Open File", "", "*.csv *.json");
-}
-
-
 
 
 void MainWindow::addToVector()
@@ -94,5 +65,32 @@ void MainWindow::absRead(AbstractReader& reader)
     {
         vehicles = reader.readAll();
     }
+}
+
+
+void MainWindow::on_addFilePath_clicked()
+{
+    FilePath = QFileDialog::getOpenFileName(0, "Open File", "", "*.csv *.json");
+
+    QFileInfo inf(FilePath);
+    QString file_extenstion = inf.suffix();
+
+    if(file_extenstion == "csv")
+    {
+        CSVReader csv(FilePath);
+        absRead(csv);
+    }
+    if(file_extenstion == "json")
+    {
+        JSONReader json(FilePath);
+        absRead(json);
+    }
+
+
+    for (const auto& v: vehicles)
+        {
+            ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + ", " + v.brand_and_model + ", " + QString::number(v.color) + ", " + QString::number(v.year));
+        }
+
 }
 
