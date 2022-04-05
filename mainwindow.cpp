@@ -3,6 +3,9 @@
 #include "vehicle.h"
 #include "csvreader.h"
 #include "csvwriter.h"
+#include "jsonreader.h"
+#include <QFileDialog>
+#include <QFileInfo>
 #include <string>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -10,7 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    CSVReader csv("E:/VSCode/CPP/build-LAB_2_OOP-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/Database.csv");
+
+
+    QString filePath = getFilePath();
+
+    CSVReader csv(filePath);
+    //CSVReader csv("E:/VSCode/CPP/build-LAB_2_OOP-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/Database.csv");
 
     if(csv.is_open())
     {
@@ -55,6 +63,13 @@ void MainWindow::findVehicle()
         }
 }
 
+QString MainWindow::getFilePath()
+{
+      return QFileDialog::getOpenFileName(0, "Open Dialog", "", "*.csv *.json");
+}
+
+
+
 
 void MainWindow::addToVector()
 {
@@ -66,5 +81,15 @@ void MainWindow::addToVector()
     vehicle.color = static_cast<Color>(ui->colorBox->currentIndex());
     vehicles.push_back(vehicle);
 
+}
+
+
+
+void MainWindow::absRead(AbstractReader& reader)
+{
+    if(reader.is_open())
+    {
+        reader.readAll();
+    }
 }
 

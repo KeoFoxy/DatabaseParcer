@@ -18,6 +18,13 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
+       <widget class="QPushButton" name="addFilePath">
+        <property name="text">
+         <string>Add File</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLineEdit" name="dataEntry"/>
       </item>
       <item>
@@ -234,9 +241,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>addFilePath</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>getFilePath()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>95</x>
+     <y>26</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>findVehicle()</slot>
   <slot>addToVector()</slot>
+  <slot>getFilePath()</slot>
  </slots>
 </ui>
