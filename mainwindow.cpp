@@ -31,11 +31,18 @@ MainWindow::MainWindow(QWidget *parent)
         absRead(json);
     }
 */
-    //QFileInfo inf(filePath);
-   // QString file_extenstion = inf.suffix();
+    QFileInfo inf(filePath);
+    QString file_extenstion = inf.suffix();
 
-    CSVReader csv(filePath);
-    absRead(csv);
+    //CSVReader csv(filePath);
+    //absRead(csv);
+
+
+    if(file_extenstion == "csv")
+    {
+        CSVReader csv(filePath);
+        absRead(csv);
+    }
     //CSVReader csv("E:/VSCode/CPP/build-LAB_2_OOP-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/Database.csv");
     //JSONReader json(filePath);
 
@@ -54,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
           proccessedFile(json);
       }
 */
-
+/*
     if(csv.is_open())
     {
         vehicles = csv.readAll();
@@ -64,7 +71,7 @@ MainWindow::MainWindow(QWidget *parent)
         });
     }
 
-
+*/
 
 
 
@@ -131,7 +138,7 @@ void MainWindow::absRead(AbstractReader& reader)
 {
     if(reader.is_open())
     {
-        reader.readAll();
+        vehicles = reader.readAll();
     }
 }
 

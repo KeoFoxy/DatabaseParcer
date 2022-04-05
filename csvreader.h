@@ -20,9 +20,9 @@ public:
     CSVReader(const QString &filename);
     ~CSVReader();
 
-    bool is_open() override {return fin.is_open(); };
+    virtual bool is_open() override {return fin.is_open(); };
 
-    std::vector<Vehicle> readAll() override;
+    virtual std::vector<Vehicle> readAll() override;
 
     CSVReader(const CSVReader&) = delete;
     CSVReader operator=(const CSVReader&) = delete;
