@@ -28,11 +28,15 @@
        <widget class="QLineEdit" name="dataEntry"/>
       </item>
       <item>
-       <widget class="QPushButton" name="buttonFind">
-        <property name="text">
-         <string>Search</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QPushButton" name="buttonFind">
+          <property name="text">
+           <string>Search</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -249,7 +253,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>54</x>
-     <y>41</y>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
      <x>95</x>
@@ -262,5 +266,6 @@
   <slot>findVehicle()</slot>
   <slot>addToVector()</slot>
   <slot>getFilePath()</slot>
+  <slot>clearTextBrowser()</slot>
  </slots>
 </ui>

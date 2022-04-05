@@ -70,6 +70,7 @@ void MainWindow::absRead(AbstractReader& reader)
 
 void MainWindow::on_addFilePath_clicked()
 {
+    ui->textBrowser_lisfOfSearchedData->clear();
     FilePath = QFileDialog::getOpenFileName(0, "Open File", "", "*.csv *.json");
 
     QFileInfo inf(FilePath);
@@ -93,4 +94,5 @@ void MainWindow::on_addFilePath_clicked()
         }
 
 }
+
 

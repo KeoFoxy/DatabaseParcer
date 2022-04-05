@@ -28,6 +28,7 @@ public slots:
 private slots:
     void on_addFilePath_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     std::vector<Vehicle> vehicles;
