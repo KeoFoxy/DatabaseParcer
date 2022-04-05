@@ -10,16 +10,19 @@
 #include <QFile>
 #include <QString>
 
-class CSVReader
+#include "abstractreader.h"
+
+
+class CSVReader: public AbstractReader
 {
     std::ifstream fin;
 public:
     CSVReader(const QString &filename);
     ~CSVReader();
 
-    bool is_open() const{ return fin.is_open(); };
+    bool is_open() override {return fin.is_open(); };
 
-    std::vector<Vehicle> readAll();
+    std::vector<Vehicle> readAll() override;
 
     CSVReader(const CSVReader&) = delete;
     CSVReader operator=(const CSVReader&) = delete;

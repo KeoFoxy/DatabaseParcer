@@ -9,9 +9,12 @@ public:
     QString brand_and_model;
     Color color;
     int year;
-Vehicle();
-Vehicle(int _ID, QString _brand_and_model, Color _color, int _year);
-~Vehicle();
+
+    Vehicle();
+    QString to_string();
+
+    Vehicle(int _ID, QString _brand_and_model, Color _color, int _year);
+    ~Vehicle();
 };
 
 #endif // VEHICLE_H

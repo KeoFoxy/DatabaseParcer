@@ -9,16 +9,20 @@ CONFIG += console c++20
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    abstractreader.cpp \
     csvreader.cpp \
     csvwriter.cpp \
+    jsonreader.cpp \
     main.cpp \
     mainwindow.cpp \
     mytextbrowser.cpp \
     vehicle.cpp
 
 HEADERS += \
+    abstractreader.h \
     csvreader.h \
     csvwriter.h \
+    jsonreader.h \
     mainwindow.h \
     mytextbrowser.h \
     vehicle.h \
