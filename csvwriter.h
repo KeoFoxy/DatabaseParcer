@@ -15,6 +15,11 @@ public:
     bool is_open() const {return fout.is_open();};
     void writeAll(std::vector<Vehicle> vehicle);
 
+    csvwriter(const CSVReader&) = delete;
+    csvwriter operator=(const CSVReader&) = delete;
+    csvwriter(csvwriter &&c) : fout(std::move(c.fout)) {};
+    csvwriter operator =(csvwriter &&c) { return std::move(c);};
+
 };
 
 #endif // CSVWRITER_H

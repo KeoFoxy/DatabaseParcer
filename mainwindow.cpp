@@ -20,7 +20,13 @@ MainWindow::MainWindow(QWidget *parent)
             return vehicle_1.year > vehicle_2.year;
         });
     }
+
+    for (const auto& v: vehicles)
+        {
+            ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + "," + v.brand_and_model + "," + QString::number(v.color) + "," + QString::number(v.year));
+        }
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -31,11 +37,22 @@ MainWindow::~MainWindow()
 
 void MainWindow::findVehicle()
 {
-    for (const auto& v: vehicles)
-    {
-        if(v.brand_and_model == ui->dataEntry->text())
-            ui->textBrowser_lisfOfSearchedData->append(QString::number(v.ID) + "," + v.brand_and_model + "," + QString::number(v.color) + "," + QString::number(v.year));
-    }
+    int kostil = 0;
+        int palka = -1;
+        for (const auto& v: vehicles)
+        {
+            if((v.brand_and_model).right(v.brand_and_model.size() - 1) == ui->dataEntry->text())
+            {
+                ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + "," + v.brand_and_model + "," + QString::number(v.color) + "," + QString::number(v.year));
+            palka = 1;
+            }
+            kostil +=1;
+            if(kostil == int(vehicles.size()) && palka == -1)
+            {
+            ui->textBrowser_lisfOfSearchedData->appendRed("Information hasn't been found");
+
+            }
+        }
 }
 
 

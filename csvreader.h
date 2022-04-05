@@ -20,8 +20,11 @@ public:
     bool is_open() const{ return fin.is_open(); };
 
     std::vector<Vehicle> readAll();
-    Vehicle getVehicle(const std::vector<QString> &vehicleLine);
-    
+
+    CSVReader(const CSVReader&) = delete;
+    CSVReader operator=(const CSVReader&) = delete;
+    CSVReader(CSVReader &&c) : fin(std::move(c.fin)) {};
+    CSVReader operator =(CSVReader &&c) { return std::move(c);};
 };
 
 

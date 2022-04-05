@@ -13,12 +13,14 @@ SOURCES += \
     csvwriter.cpp \
     main.cpp \
     mainwindow.cpp \
+    mytextbrowser.cpp \
     vehicle.cpp
 
 HEADERS += \
     csvreader.h \
     csvwriter.h \
     mainwindow.h \
+    mytextbrowser.h \
     vehicle.h \
     vehicle_color.h
 
