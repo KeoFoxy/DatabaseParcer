@@ -16,6 +16,7 @@ std::vector<Vehicle> JSONReader::readAll()
     nlohmann::json json;
 
     fin >> json;
+    /*
     int count = 7;
     //count = json["count"];
 
@@ -30,4 +31,20 @@ std::vector<Vehicle> JSONReader::readAll()
         vehicles.push_back(result);
     }
     return vehicles;
+  */
+
+    for(const auto& j: json)
+       {
+            Vehicle result;
+            result.ID = j["id"];
+            result.brand_and_model = QString::fromStdString(j["model"]);
+            result.color = static_cast<Color>(j["color"]);
+            result.year = j["year"];
+
+            vehicles.push_back(result);
+      }
+
+      return vehicles;
+
+
 }
