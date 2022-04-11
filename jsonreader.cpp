@@ -3,6 +3,9 @@
 JSONReader::JSONReader(const QString &filename)
 {
     fin.open(filename.toLatin1().data());
+    fin >> json;
+    j_start = json.begin();
+
 }
 
 JSONReader::~JSONReader()

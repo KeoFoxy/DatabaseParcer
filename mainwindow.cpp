@@ -63,7 +63,7 @@ void MainWindow::absRead(AbstractReader& reader)
 {
     if(reader.is_open())
     {
-        vehicles = reader.readAll();
+        newReadAll(reader);
     }
 }
 
@@ -93,6 +93,14 @@ void MainWindow::on_addFilePath_clicked()
             ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + ", " + v.brand_and_model + ", " + QString::number(v.color) + ", " + QString::number(v.year));
         }
 
+}
+void MainWindow::newReadAll(AbstractReader& reader)
+{
+    Vehicle vehicles;
+    while(reader >> vehicles)
+    {
+        ui->textBrowser_lisfOfSearchedData->appendGreen(vehicles.to_string());
+    }
 }
 
 

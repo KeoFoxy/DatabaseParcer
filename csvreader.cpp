@@ -24,14 +24,14 @@ std::vector<std::string> split_line(const std::string &str, char delim)
     return tokens;
 }
 
-
+/*
 std::vector<Vehicle> CSVReader::readAll()
 {
     std::vector<Vehicle> result;
 
-        std::ifstream fin("Database.csv");
-        if (fin.is_open())
-        {
+        //std::ifstream fin("Database.csv");
+        //if (fin.is_open())
+       // {
             while (fin.good())
             {
                 std::string line;
@@ -46,11 +46,11 @@ std::vector<Vehicle> CSVReader::readAll()
                 temp.year = stoi(v[3]);
 
                 result.push_back(temp);
-            }
+           // }
         }
     return result;
 }
-
+*/
 
 CSVReader::~CSVReader()
 {

@@ -11,10 +11,15 @@ public:
     int year;
 
     Vehicle();
-    QString to_string();
+    QString to_string() const;
 
     Vehicle(int _ID, QString _brand_and_model, Color _color, int _year);
     ~Vehicle();
+
+    bool operator<(const Vehicle& vehicles)
+    {
+        return this->year > vehicles.year;
+    }
 };
 
 #endif // VEHICLE_H

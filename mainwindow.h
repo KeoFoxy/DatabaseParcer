@@ -23,7 +23,7 @@ public slots:
     void findVehicle();
     void addToVector();
     void absRead(AbstractReader& reader);
-
+    void newReadAll(AbstractReader& reader);
 
 private slots:
     void on_addFilePath_clicked();
