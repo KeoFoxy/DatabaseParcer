@@ -33,6 +33,7 @@ void MainWindow::findVehicle()
             if((v.brand_and_model).right(v.brand_and_model.size() - 1) == ui->dataEntry->text())
             {
                 ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + "," + v.brand_and_model + "," + QString::number(v.color) + "," + QString::number(v.year));
+
             palka = 1;
             }
             kostil +=1;
@@ -97,10 +98,14 @@ void MainWindow::on_addFilePath_clicked()
 }
 void MainWindow::newReadAll(AbstractReader& reader)
 {
-    Vehicle vehicles;
-    while(reader >> vehicles)
+    Vehicle vehicle;
+    vehicles.clear();
+
+    while(reader)
     {
-        ui->textBrowser_lisfOfSearchedData->appendGreen(vehicles.to_string());
+        reader >> vehicle;
+       // ui->textBrowser_lisfOfSearchedData->appendGreen(vehicle.to_string());
+        vehicles.push_back(vehicle);
     }
 }
 

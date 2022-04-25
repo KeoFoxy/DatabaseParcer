@@ -32,7 +32,8 @@ std::vector<Vehicle> CSVReader::readAll()
         //std::ifstream fin("Database.csv");
         //if (fin.is_open())
        // {
-            while (!fin.eof())
+
+            while(!fin.eof())
             {
                 std::string line;
                 std::getline(fin, line);
@@ -46,8 +47,10 @@ std::vector<Vehicle> CSVReader::readAll()
                 temp.year = stoi(v[3]);
 
                 result.push_back(temp);
-           // }
-        }
+            }
+
+           //
+
     return result;
 }
 

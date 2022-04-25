@@ -16,6 +16,7 @@
 class CSVReader: public AbstractReader
 {
     std::ifstream fin;
+
 public:
     CSVReader(const QString &filename);
     ~CSVReader();
@@ -39,8 +40,8 @@ public:
     {
         //std::vector<Vehicle> result;
 
-        if (!fin.eof())
-        {
+        //if (!fin.eof())
+       // {
             std::string line;
             std::getline(fin, line);
 
@@ -52,7 +53,7 @@ public:
             vehicles.color = static_cast<Color>(stoi(v[2]));
             vehicles.year = stoi(v[3]);
 
-        }
+       // }
 
         return *this;
     }
