@@ -24,7 +24,7 @@ public:
 
     virtual bool is_open() override {return fin.is_open(); };
 
-    //virtual std::vector<Vehicle> readAll() override;
+    virtual std::vector<Vehicle> readAll() override;
 
     CSVReader(const CSVReader&) = delete;
     CSVReader& operator=(const CSVReader&) = delete;
@@ -39,7 +39,7 @@ public:
     {
         //std::vector<Vehicle> result;
 
-        if (fin.eof())
+        if (!fin.eof())
         {
             std::string line;
             std::getline(fin, line);

@@ -7,7 +7,7 @@ CSVReader::CSVReader(const QString& filename)
 }
 
 
-std::vector<std::string> split_line(const std::string &str, char delim)
+std::vector<std::string> CSVReader::split_line(const std::string &str, char delim)
 {
     std::vector<std::string> tokens;
 
@@ -24,7 +24,7 @@ std::vector<std::string> split_line(const std::string &str, char delim)
     return tokens;
 }
 
-/*
+
 std::vector<Vehicle> CSVReader::readAll()
 {
     std::vector<Vehicle> result;
@@ -32,7 +32,7 @@ std::vector<Vehicle> CSVReader::readAll()
         //std::ifstream fin("Database.csv");
         //if (fin.is_open())
        // {
-            while (fin.good())
+            while (!fin.eof())
             {
                 std::string line;
                 std::getline(fin, line);
@@ -50,7 +50,7 @@ std::vector<Vehicle> CSVReader::readAll()
         }
     return result;
 }
-*/
+
 
 CSVReader::~CSVReader()
 {

@@ -25,7 +25,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::findVehicle()
 {
-    int kostil = 0;
+    std::sort(vehicles.begin(), vehicles.end());
+        int kostil = 0;
         int palka = -1;
         for (const auto& v: vehicles)
         {

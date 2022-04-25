@@ -23,8 +23,11 @@ public:
 
     virtual AbstractReader& operator>>(Vehicle& vehicles) override
     {
-        vehicles.ID = 0;
+        //vehicles.ID = 0;
         std::string temp_model;
+
+        if(j_start != json.end())
+        {
 
         vehicles.ID = j_start.value()["id"];
         temp_model = j_start.value()["model"];
@@ -32,17 +35,15 @@ public:
         vehicles.year = j_start.value()["year"];
         vehicles.brand_and_model = QString::fromStdString(temp_model);
 
-        if(j_start != json.end())
-        {
-            j_start +=1;
         }
+        j_start++;
 
         return *this;
     }
 
     virtual operator bool() const override
     {
-        return !fin.eof();
+        return j_start - 1 != json.end();
     }
 
 
