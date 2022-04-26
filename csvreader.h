@@ -16,6 +16,7 @@
 class CSVReader: public AbstractReader
 {
     std::ifstream fin;
+    bool flag;
 
 public:
     CSVReader(const QString &filename);
@@ -38,10 +39,16 @@ public:
    // CSVReader operator =(CSVReader &&c) { return std::move(c);};
     CSVReader& operator>>(Vehicle& vehicles) override
     {
-        //std::vector<Vehicle> result;
+        //bool flag;
+        if(fin.eof())
+         {
+            flag = false;
+         }
 
-        //if (!fin.eof())
-       // {
+        if(!fin.eof())
+        {
+            flag = true;
+
             std::string line;
             std::getline(fin, line);
 
@@ -52,16 +59,16 @@ public:
             vehicles.brand_and_model = QString::fromStdString(v[1]);
             vehicles.color = static_cast<Color>(stoi(v[2]));
             vehicles.year = stoi(v[3]);
-
+        }
        // }
 
         return *this;
     }
 
 
-    operator bool() const override
+    virtual operator bool() const override
     {
-        return !fin.eof();
+        return flag;
     }
 };
 

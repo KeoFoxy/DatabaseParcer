@@ -25,7 +25,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::findVehicle()
 {
-    std::sort(vehicles.begin(), vehicles.end());
+    //std::sort(vehicles.begin(), vehicles.end());
         int kostil = 0;
         int palka = -1;
         for (const auto& v: vehicles)
@@ -101,12 +101,17 @@ void MainWindow::newReadAll(AbstractReader& reader)
     Vehicle vehicle;
     vehicles.clear();
 
-    while(reader)
+
+    while((reader >> vehicle))
     {
-        reader >> vehicle;
+        //reader >> vehicle;
        // ui->textBrowser_lisfOfSearchedData->appendGreen(vehicle.to_string());
         vehicles.push_back(vehicle);
     }
+
+
+
+
 }
 
 
