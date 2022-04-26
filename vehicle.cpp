@@ -17,3 +17,8 @@ Vehicle::~Vehicle()
 {
 
 }
+
+QString Vehicle::to_string() const
+{
+    return QString::number(ID) + ";" + brand_and_model + ";" + QString::number(color) + ";" + QString::number(year);
+}

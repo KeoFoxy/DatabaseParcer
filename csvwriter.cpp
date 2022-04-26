@@ -24,3 +24,9 @@ csvwriter::~csvwriter()
 {
     fout.close();
 }
+
+std::ostream& operator<<(std::ostream& _fout, const Vehicle &vehicles)
+{
+    _fout << vehicles.to_string().toLatin1().data();
+    return _fout;
+}

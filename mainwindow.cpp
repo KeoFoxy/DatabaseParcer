@@ -25,13 +25,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::findVehicle()
 {
-    int kostil = 0;
+    //std::sort(vehicles.begin(), vehicles.end());
+        int kostil = 0;
         int palka = -1;
         for (const auto& v: vehicles)
         {
             if((v.brand_and_model).right(v.brand_and_model.size() - 1) == ui->dataEntry->text())
             {
                 ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + "," + v.brand_and_model + "," + QString::number(v.color) + "," + QString::number(v.year));
+
             palka = 1;
             }
             kostil +=1;
@@ -63,7 +65,7 @@ void MainWindow::absRead(AbstractReader& reader)
 {
     if(reader.is_open())
     {
-        vehicles = reader.readAll();
+        newReadAll(reader);
     }
 }
 
@@ -92,6 +94,23 @@ void MainWindow::on_addFilePath_clicked()
         {
             ui->textBrowser_lisfOfSearchedData->appendGreen(QString::number(v.ID) + ", " + v.brand_and_model + ", " + QString::number(v.color) + ", " + QString::number(v.year));
         }
+
+}
+void MainWindow::newReadAll(AbstractReader& reader)
+{
+    Vehicle vehicle;
+    vehicles.clear();
+
+
+    while((reader >> vehicle))
+    {
+        //reader >> vehicle;
+       // ui->textBrowser_lisfOfSearchedData->appendGreen(vehicle.to_string());
+        vehicles.push_back(vehicle);
+    }
+
+
+
 
 }
 
