@@ -7,6 +7,9 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include <string>
+#include <QMessageBox>
+
+#include "csvexception.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -101,17 +104,18 @@ void MainWindow::newReadAll(AbstractReader& reader)
     Vehicle vehicle;
     vehicles.clear();
 
-
-    while((reader >> vehicle))
+    try
     {
-        //reader >> vehicle;
-       // ui->textBrowser_lisfOfSearchedData->appendGreen(vehicle.to_string());
-        vehicles.push_back(vehicle);
+        while((reader >> vehicle))
+        {
+            vehicles.push_back(vehicle);
+        }
     }
-
-
-
-
+    catch(CSVException &err)
+    {
+        ui->textBrowser_lisfOfSearchedData->clear();
+        ui->textBrowser_lisfOfSearchedData->appendRed("Error in CSV file!!! Error in line: " + QString::number(err.getLineNum()));
+    }
 }
 
 

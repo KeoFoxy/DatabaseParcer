@@ -1,6 +1,5 @@
 #include "csvreader.h"
-//using namespace std;
-//Открытие файла
+
 CSVReader::CSVReader(const QString& filename)
 {
    fin.open(filename.toLatin1().data());
@@ -28,11 +27,8 @@ std::vector<std::string> CSVReader::split_line(const std::string &str, char deli
 std::vector<Vehicle> CSVReader::readAll()
 {
     std::vector<Vehicle> result;
-
-        //std::ifstream fin("Database.csv");
-        //if (fin.is_open())
-       // {
-
+    try
+    {
             while(!fin.eof())
             {
                 std::string line;
@@ -46,12 +42,17 @@ std::vector<Vehicle> CSVReader::readAll()
                 temp.color = static_cast<Color>(stoi(v[2]));
                 temp.year = stoi(v[3]);
 
+                lineNum++;
+
                 result.push_back(temp);
             }
 
-           //
-
     return result;
+    }
+    catch(std::logic_error &error)
+    {
+        throw CSVException("Error", lineNum);
+    }
 }
 
 

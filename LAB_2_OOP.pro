@@ -10,6 +10,7 @@ CONFIG += console c++20
 
 SOURCES += \
     abstractreader.cpp \
+    csvexception.cpp \
     csvreader.cpp \
     csvwriter.cpp \
     jsonreader.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     abstractreader.h \
+    csvexception.h \
     csvreader.h \
     csvwriter.h \
     jsonreader.h \

@@ -9,14 +9,17 @@
 #include <sstream>
 #include <QFile>
 #include <QString>
+#include <QMessageBox>
 
 #include "abstractreader.h"
+#include "csvexception.h"
 
 
 class CSVReader: public AbstractReader
 {
     std::ifstream fin;
     bool flag;
+    int lineNum = 0;
 
 public:
     CSVReader(const QString &filename);
@@ -39,7 +42,8 @@ public:
    // CSVReader operator =(CSVReader &&c) { return std::move(c);};
     CSVReader& operator>>(Vehicle& vehicles) override
     {
-        //bool flag;
+        try
+        {
         if(fin.eof())
          {
             flag = false;
@@ -59,10 +63,17 @@ public:
             vehicles.brand_and_model = QString::fromStdString(v[1]);
             vehicles.color = static_cast<Color>(stoi(v[2]));
             vehicles.year = stoi(v[3]);
+
+            lineNum++;
         }
-       // }
+
 
         return *this;
+        }
+        catch(std::logic_error &error)
+        {
+            throw CSVException("Error", lineNum);
+        }
     }
 
 

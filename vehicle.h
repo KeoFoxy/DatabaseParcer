@@ -2,6 +2,7 @@
 #define VEHICLE_H
 #include <QString>
 #include <vehicle_color.h>
+#include "csvexception.h"
 
 class Vehicle{
 public:
@@ -20,6 +21,7 @@ public:
     {
         return this->year > vehicles.year;
     }
+
 };
 
 #endif // VEHICLE_H
