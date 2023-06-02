@@ -1,0 +1,40 @@
+[
+    {
+        "title": "Weathering with you",
+        "rating": 8,
+        "genre": "Fantasy",
+        "year": 2019
+    },
+
+    {
+        "title": "Kill Bill",
+        "rating": 8,
+        "genre": "Action",
+        "year": 2003
+    },
+
+    {
+        "title": "Knives Out",
+        "rating": 8,
+        "genre": "Mystery",
+        "year": 2019
+    },
+    {
+        "title": "Parasite",
+        "rating": 9,
+        "genre": "Thriller",
+        "year": 2019
+    },
+    {
+        "title": "Old oy",
+        "rating": 6,
+        "genre": "Detective",
+        "year": 2003
+    },
+    {
+        "title": "Avengers",
+        "rating": 9,
+        "genre": "Sci-fi",
+        "year": 2012
+    }
+]
