@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -20,12 +23,22 @@
       <item>
        <widget class="QPushButton" name="addFilePath">
         <property name="text">
-         <string>Add File</string>
+         <string>Open File</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="dataEntry"/>
+       <widget class="QLineEdit" name="dataEntry">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Enter a search query</string>
+        </property>
+       </widget>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -43,21 +56,30 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="MyTextBrowser" name="textBrowser_lisfOfSearchedData"/>
+       <widget class="CustomTextBrowser" name="dataField"/>
       </item>
      </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>ID:</string>
+       <widget class="QLineEdit" name="editTitle">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Title</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="edit_ID">
+       <widget class="QLineEdit" name="editRating">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -69,7 +91,7 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>30</width>
+          <width>50</width>
           <height>20</height>
          </size>
         </property>
@@ -82,101 +104,94 @@
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Model:</string>
+        <property name="placeholderText">
+         <string>Rating</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="edit_Model">
+       <widget class="QLineEdit" name="editTargetID">
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>Target ID</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="editEpisodes">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>Episodes</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="editRewatch">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>Rewatches</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="editTargetType">
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
           <height>20</height>
          </size>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Year:</string>
+        <property name="placeholderText">
+         <string>Target Type</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="edit_Year">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Color:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="colorBox">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>20</height>
-         </size>
-        </property>
+       <widget class="QComboBox" name="comboStatus">
         <item>
          <property name="text">
-          <string>Red</string>
+          <string>Completed</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Green</string>
+          <string>Dropped</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Blue</string>
+          <string>Planned</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>White</string>
+          <string>On Hold</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Black</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Yellow</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Orange</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Gray</string>
+          <string>Watching</string>
          </property>
         </item>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="addVehicleButton">
+       <widget class="QPushButton" name="addFilmButton">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -198,7 +213,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>37</height>
     </rect>
    </property>
   </widget>
@@ -206,9 +221,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MyTextBrowser</class>
+   <class>CustomTextBrowser</class>
    <extends>QTextBrowser</extends>
-   <header>mytextbrowser.h</header>
+   <header location="global">customtextbrowser.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -230,7 +245,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>addVehicleButton</sender>
+   <sender>addFilmButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>addToVector()</slot>

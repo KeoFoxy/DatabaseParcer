@@ -2,10 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <vehicle.h>
-#include "mytextbrowser.h"
-#include "abstractreader.h"
 
+#include "csvreader.h"
+#include "csvwriter.h"
+#include "jsonreader.h"
+#include "films.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,21 +19,19 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 public slots:
-    void findVehicle();
-    void addToVector();
-    void absRead(AbstractReader& reader);
-    void newReadAll(AbstractReader& reader);
+    void absRead(AbstractReader &reader);
+    void newReadAll(AbstractReader &reader);
 
 private slots:
     void on_addFilePath_clicked();
-
+    void on_buttonFind_clicked();
+    void on_addFilmButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-    std::vector<Vehicle> vehicles;
 
-    QString FilePath;
+    std::vector<Films> films;
+    QString filePath = "";
 };
 #endif // MAINWINDOW_H
